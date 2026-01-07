@@ -1,57 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	
-	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-		body{
-			background-color: blue;
-			color: aquamarine;
-			font-family: "Public Sans", sans-serif;
-		}
+<meta charset="UTF-8">
+<title>444 Nuit</title>
 
-		/* Typo */
-		body{
-			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-		}
-		h1{
-			font-size: 8vw;
-			letter-spacing: -0.02em;
-		}
+<!-- POLICES -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Changa+One&family=Jost:wght@300;500&family=Playfair+Display&family=Sekuya&display=swap" rel="stylesheet">
 
-		/* Couleur */
-		body{
-			background-color: blanchedalmond;
-			color: rgb(255, 255, 255);
-		}
+<style>
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
 
-		/* mise en page */
-		body{
-			min-height: 100vh;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-		}
-		h1{ max-width: 15ch;}
+body {
+  background: url("nepal.jpg") center / cover no-repeat;
+  overflow: hidden;
+  color: white;
+}
 
-		body {
-			background-image: url("NEPAL.jpg"); /* chemin vers ton image */
-			background-size: cover;      /* l’image s’adapte à l’écran */
-			background-repeat: no-repeat; /* évite que l’image se répète */
-			background-attachment: fixed; /* l’image reste fixe au scroll */
-			background-position: center; /* centre l’image */
-		}
+/* CONTENEUR TEXTE */
+.container {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+}
 
+/* GLITCH */
+.glitch {
+  position: relative;
+  font-family: "Changa One", cursive;
+  font-size: 64px;
+  text-decoration: none;
+  color: white;
+  text-shadow: 0 0 15px black;
+}
 
-	</style>
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
 
+.glitch::before {
+  color: #ff00ff;
+  animation: glitch1 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  color: #00ffff;
+  animation: glitch2 1.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch1 {
+  0% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -2px); }
+  50% { clip-path: inset(30% 0 40% 0); }
+  100% { clip-path: inset(60% 0 10% 0); transform: translate(2px, 2px); }
+}
+
+@keyframes glitch2 {
+  0% { clip-path: inset(70% 0 10% 0); transform: translate(2px, 0); }
+  50% { clip-path: inset(10% 0 60% 0); }
+  100% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, 0); }
+}
+
+/* CITATION */
+.quote {
+  margin-top: 20px;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  opacity: 0.9;
+  text-shadow: 0 0 10px black;
+}
+
+/* PSEUDO */
+.pseudo {
+  margin-top: 8px;
+  font-family: "Jost", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+</style>
 </head>
+
 <body>
-	<h1>“Quand la kamehouse”</h1>
-	<p>– Népal</p>
+
+<div class="container">
+  <a
+    href="https://444nuits.com/"
+    target="_blank"
+    class="glitch"
+    data-text="444 NUIT"
+  >
+    444 NUIT
+  </a>
+
+  <div class="quote">
+    « Attitude de kissman, mais ils ont rien de spécial. »
+  </div>
+
+  <div class="pseudo">
+    — @Népal
+  </div>
+</div>
+
 </body>
 </html>
+

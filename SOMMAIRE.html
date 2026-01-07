@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon site</title>
+
+    <!-- Police Caveat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Fond GIF et style général */
+        body {
+            margin: 0;
+            font-family: 'Caveat', cursive;
+            overflow-x: hidden; /* empêche le scroll horizontal si le gif dépasse */
+        }
+
+        /* GIF en fond */
+        .background-gif {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('mer.gif') repeat center center/cover;
+            z-index: -1; /* derrière tout le contenu */
+        }
+
+        /* Texte Sommaire en haut à gauche */
+        h1 {
+            margin: 20px;
+            color: #000;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Conteneur des liens */
+        .link-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 100px; /* pour laisser de la place au titre */
+            gap: 20px;
+        }
+
+        /* Carré */
+        .link-box {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        /* Effet hover : saut léger */
+        .link-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- GIF de fond -->
+    <div class="background-gif"></div>
+
+    <h1>MES CITATIONS</h1>
+
+    <div class="link-container">
+        <a href="citations_01.html" class="link-box">Mac DeMarco</a>
+        <a href="citations_02.html" class="link-box">Népal</a>
+        <a href="citations_03.html" class="link-box">Isha et Limsa</a>
+        <a href="citations_04.html" class="link-box">TH</a>
+        <a href="citations_05.html" class="link-box">Site 5</a>
+        <a href="citations_06.html" class="link-box">Site 6</a>
+        <a href="citations_07.html" class="link-box">Site 7</a>
+        <a href="citations_08.html" class="link-box">Site 8</a>
+        <a href="citations_09.html" class="link-box">Kacem Wapalek</a>
+        <a href="citations_10.html" class="link-box">Site 10</a>
+        <a href="citations_11.html" class="link-box">Surprise</a>
+        <a href="citations_12.html" class="link-box">Natoo</a>
+        <a href="citations_13.html" class="link-box">Labi saffri</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Neige CSS</title>
+
+<style>
+/* --- Fond dégradé --- */
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #1e3c72, #2a5298);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+
+/* --- Texte flottant --- */
+.text {
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  animation: float 4s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* Animation du texte */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* --- Flocons --- */
+.snow {
+  position: absolute;
+  top: -10px;
+  color: white;
+  font-size: 20px;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+/* Animation de chute */
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+/* Position et vitesse des flocons */
+.snow:nth-child(1) { left: 10%; animation-duration: 10s; }
+.snow:nth-child(2) { left: 20%; animation-duration: 12s; }
+.snow:nth-child(3) { left: 30%; animation-duration: 8s; }
+.snow:nth-child(4) { left: 40%; animation-duration: 11s; }
+.snow:nth-child(5) { left: 50%; animation-duration: 9s; }
+.snow:nth-child(6) { left: 60%; animation-duration: 13s; }
+.snow:nth-child(7) { left: 70%; animation-duration: 10s; }
+.snow:nth-child(8) { left: 80%; animation-duration: 14s; }
+.snow:nth-child(9) { left: 90%; animation-duration: 9s; }
+
+</style>
+</head>
+
+<body>
+
+<div class="text">Bienvenue ❄️</div>
+
+<!-- Flocons -->
+<div class="snow">❄</div>
+<div class="snow">❄</div>
+<div class="snow">❄</div>
+<div class="snow">❄</div>
+<div class="snow">❄</div>
+<div class="snow">❄</div>
+<div class="snow">❄</div>
+<div class="snow">❄</div>
+<div class="snow">❄</div>
+
+</body>
+</html>

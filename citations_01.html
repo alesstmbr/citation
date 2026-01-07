@@ -1,47 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	
-	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-		body{
-			background-color: blue;
-			color: aquamarine;
-			font-family: "Public Sans", sans-serif;
-		}
+    <meta charset="UTF-8">
+    <title>MAC DE MARCO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		/* Typo */
-		body{
-			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-		}
-		h1{
-			font-size: 8vw;
-			letter-spacing: -0.02em;
-		}
+    <!-- TYPO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Changa+One:ital@0;1&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sekuya&display=swap" rel="stylesheet">
 
-		/* Couleur */
-		body{
-			background-color: blanchedalmond;
-			color: azure;
-		}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
 
-		/* mise en page */
-		body{
-			min-height: 100vh;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-		}
-		h1{ max-width: 15ch;}
-	</style>
+        body {
+            height: 100vh;
+            background: url("macdemarco.gif") no-repeat center center / cover;
+            overflow: hidden;
+            font-family: 'Jost', sans-serif;
+        }
 
+        /* TEXTE CENTRAL */
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(8px);
+            padding: 35px 55px;
+            border-radius: 25px;
+            text-align: center;
+            color: white;
+        }
+
+        .center h1 {
+            font-family: 'Playfaire Display', serif;
+            font-size: 50px;
+            letter-spacing: 4px;
+        }
+
+        .center p {
+            font-family: 'Playfair Display', serif;
+            margin-top: 12px;
+            opacity: 0.9;
+        }
+
+        /* CURSEUR */
+        .cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: yellow;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* CURSEUR 2 */
+        .heart {
+            position: fixed;
+            font-size: 16px;
+            pointer-events: none;
+            animation: fall 1s ease-out forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(40px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* BOUTON MUSIQUE */
+        #music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(6px);
+            color: white;
+            font-family: 'Jost', sans-serif;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-	<h1>“A successful design career is possible without forfeiting self-respect as long as you do not undervalue (or overvalue) your work.”</h1>
-	<p>– Peter Landt</p>
+
+    <div class="center">
+        <h1>SHE'S REALLY ALL I NEED</h1>
+        <p>Mac DeMarco</p>
+    </div>
+
+    <div class="cursor"></div>
+
+ 
+    <audio id="bg-music" loop>
+        <source src="MacDeMarco.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="music-btn">▶ Musique</button>
+
+    <script>
+        const cursor = document.querySelector(".cursor");
+        const music = document.getElementById("bg-music");
+        const btn = document.getElementById("music-btn");
+
+        let playing = false;
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.textContent = "💛";
+            heart.style.left = e.clientX + "px";
+            heart.style.top = e.clientY + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 1000);
+        });
+
+        btn.addEventListener("click", () => {
+            if (!playing) {
+                music.volume = 0.3;
+                music.play();
+                btn.textContent = "⏸ Pause";
+            } else {
+                music.pause();
+                btn.textContent = "▶ Musique";
+            }
+            playing = !playing;
+        });
+    </script>
+
 </body>
 </html>

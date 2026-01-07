@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Totally Normal Page</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(120deg, #ff0033, #ffb700);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Texte */
+#text {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+/* Bouton */
+#rickroll {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  padding: 20px 40px;
+  background: rgb(255, 0, 132);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="text">Clique ici pour la suite</div>
+
+<a
+  id="rickroll"
+  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  target="_blank"
+>
+encore une fois
+</a>
+
+<script>
+let clicks = 0;
+const text = document.getElementById("text");
+const link = document.getElementById("rickroll");
+
+moveText();
+
+text.addEventListener("click", () => {
+  clicks++;
+
+  if (clicks < 5) {
+    moveText();
+  } else {
+    text.style.display = "none";
+    link.style.display = "block";
+  }
+});
+
+function moveText() {
+  const x = Math.random() * (window.innerWidth - 250);
+  const y = Math.random() * (window.innerHeight - 100);
+  text.style.left = x + "px";
+  text.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>

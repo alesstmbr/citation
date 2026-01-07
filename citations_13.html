@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Site Original</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Changa+One:ital@0;1&family=Jost:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sekuya&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        body {
+            height: 100vh;
+            background: url("Labi-siffre.jpg")
+                        no-repeat center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Jost', sans-serif;
+        }
+
+        /* CARRE FLOU */
+        .glass {
+            width: 420px;
+            height: 260px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.35);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            color: white;
+        }
+
+        /* CITATION */
+        .glass h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        /* NOM ARTISTE */
+        .glass p {
+            font-family: 'Bebas Neue', serif;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* CURSEUR */
+        .cursor {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background: rgb(162, 159, 235);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .trail {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: rgba(132, 155, 194, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fade 0.6s linear forwards;
+        }
+
+        @keyframes fade {
+            to {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass">
+        <div>
+          <h1> I'm a nowhere man, i'm a desperate Dan </h1>
+            <p>Labi Siffre</p>
+        </div>
+    </div>
+
+    <div class="cursor"></div>
+
+    <script>
+        const cursor = document.querySelector(".cursor");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+
+            const trail = document.createElement("div");
+            trail.className = "trail";
+            trail.style.left = e.clientX + "px";
+            trail.style.top = e.clientY + "px";
+            document.body.appendChild(trail);
+
+            setTimeout(() => {
+                trail.remove();
+            }, 600);
+        });
+    </script>
+
+</body>
+</html>
