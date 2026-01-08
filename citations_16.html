@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cigarette de haine</title>
+
+<!-- TYPO -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+
+<style>
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* FOND */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Rammetto One", cursive;
+  background: url("infinit.gif") no-repeat center center / cover;
+}
+
+/* CARRE */
+.box {
+  padding: 50px 70px;
+  background: rgba(131, 119, 28, 0.127);
+  color: white;
+  text-align: center;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+}
+
+/* TITRE */
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  letter-spacing: 0.15em;
+}
+
+/* ARTISTES */
+h2 {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+/* BOUTON */
+button {
+  padding: 14px 32px;
+  font-family: "Rammetto One", cursive;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: white;
+  color: black;
+}
+
+/* AUDIO */
+audio {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>CIGARETTE<br>DE HAINE</h1>
+  <h2>INFINIT × ALPHA WANN</h2>
+
+  <button onclick="toggleMusic()">PLAY</button>
+
+  <audio id="music">
+    <source src="Infinit.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+const music = document.getElementById("music");
+const button = document.querySelector("button");
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    button.textContent = "PAUSE";
+  } else {
+    music.pause();
+    button.textContent = "PLAY";
+  }
+}
+</script>
+
+</body>
+</html>

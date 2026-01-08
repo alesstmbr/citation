@@ -3,54 +3,88 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	
+	<title>TH</title>
+
+	<!-- Police BBH Bartle -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap" rel="stylesheet">
+
 	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-		body{
-			background-color: blue;
-			color: aquamarine;
-			font-family: "Public Sans", sans-serif;
-		}
-
-		/* Typo */
-		body{
-			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-		}
-		h1{
-			font-size: 8vw;
-			letter-spacing: -0.02em;
-		}
-
-		/* Couleur */
-		body{
-			background-color: blanchedalmond;
-			color: rgb(255, 255, 255);
-		}
-
-		/* mise en page */
-		body{
-			min-height: 100vh;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-		}
-		h1{ max-width: 15ch;}
-
 		body {
-			background-image: url("TH.jpg"); /* chemin vers ton image */
-			background-size: cover;      /* l’image s’adapte à l’écran */
-			background-repeat: no-repeat; /* évite que l’image se répète */
-			background-attachment: fixed; /* l’image reste fixe au scroll */
-			background-position: center; /* centre l’image */
+			margin: 0;
+			padding: 0;
+			min-height: 100vh;
+			font-family: 'BBH Bartle', cursive;
+			color: white;
+
+			/* Fond image */
+			background-image: url("TH.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-position: center;
+
+			/* Flex pour le texte en bas à droite */
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			align-items: flex-end;
+			padding: 2rem;
+			overflow: hidden;
 		}
 
-	</style>
+		h1 {
+			font-size: 6vw;
+			max-width: 20ch;
+			margin: 0;
+			text-align: right;
+		}
 
+		p {
+			margin-top: 0.5em;
+			font-size: 1.5em;
+			text-align: right;
+		}
+
+		/* Emojis robots qui tombent */
+		.robot {
+			position: absolute;
+			top: -50px;
+			font-size: 2rem;
+			animation: fall linear infinite;
+		}
+
+		@keyframes fall {
+			0% {
+				transform: translateY(-50px) rotate(0deg);
+				opacity: 1;
+			}
+			100% {
+				transform: translateY(110vh) rotate(360deg);
+				opacity: 0;
+			}
+		}
+	</style>
 </head>
 <body>
+
 	<h1>“ T’es qu’une grosse douille, comme les NFT ”</h1>
 	<p>– TH</p>
+
+	<!-- Robots qui tombent -->
+	<script>
+		const emojis = ["🤖", "🤖", "🤖"];
+		for(let i=0; i<30; i++){
+			const span = document.createElement('span');
+			span.className = 'robot';
+			span.style.left = Math.random() * 100 + 'vw';
+			span.style.animationDuration = (3 + Math.random() * 5) + 's';
+			span.style.fontSize = (20 + Math.random() * 40) + 'px';
+			span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+			document.body.appendChild(span);
+		}
+	</script>
+
 </body>
 </html>
